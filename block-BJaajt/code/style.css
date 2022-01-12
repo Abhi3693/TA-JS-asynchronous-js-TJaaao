@@ -1,0 +1,64 @@
+body {
+  background-color: bisque;
+}
+.inputHolder {
+  width: 50%;
+  margin: 4rem auto;
+}
+input {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+.userHolder {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.user img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+li {
+  list-style: none;
+  margin-right: 15px;
+}
+.followers img {
+  width: 100px;
+  height: 100px;
+}
+.followers {
+  display: flex;
+}
+.following {
+  display: flex;
+}
+.following img {
+  width: 100px;
+  height: 100px;
+}
+
+div:empty {
+  border-top: 4px solid navy;
+}
+.cat {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cat img {
+  width: 400px;
+  height: 400px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 24px;
+  color: chocolate;
+  background-color: cornsilk;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+}
