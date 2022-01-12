@@ -3,7 +3,7 @@
 Your app will do the following:
 
 - A input box where you can type the username of any user in the world and press `enter`
-- Your app internally will interact with `github` api at `https://api.github.com/user/{username}`
+- Your app internally will interact with `github` api at `https://api.github.com/users/{username}`
 - Get the user data and display it on the page.
 - Display the user information like profile picture, username, number of followers and following etc
 - Display the first five following/followers user (show image, username)
