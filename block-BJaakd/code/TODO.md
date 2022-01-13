@@ -1,19 +1,23 @@
 1. Create a promise. Have it resolve with a value of `Promise Resolved!` in resolve after a delay of 1000ms, using `setTimeout`. Print the contents of the promise after it has been resolved by passing `console.log` to `.then`
 
 ```js
-// Your code
+let firstPromise = new Promise((res, rej)=> setTimeout(()=> res("Promise Resolved!"), 1000)).then((val)=> console.log(val));
+
+
 ```
 
 2. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch`
 
 ```js
-// Your code
+let firstPromise = new Promise((res, rej)=> rej("Rejected Promise!")).catch((val)=> console.log(val));
+
 ```
 
 3. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch` and also use `.finally` to log message `Promise Settled!`.
 
 ```js
-// Your code
+let firstPromise = new Promise((res, rej)=> rej("Rejected Promise!")).catch((val)=> console.log(val)).finally(()=> console.log("Promise Settled!"));
+
 ```
 
 4. What will be the output of the code below.
@@ -28,12 +32,20 @@ setTimeout(() => console.log('B'), 0); // callback queue
 Promise.resolve().then(() => console.log('C'));
 
 console.log('D');
+
+A
+D 
+C
+B
 ```
 
 5. Write a function named `wait` that accepts `time` in ms returns a promise. The promise gets resolved after given time.
 
 ```js
-// Your code
+function wait(time) {
+    return new Promise((res,rej)=> setTimeout(()=>{res("done")},time))
+}
+wait(5000)
 ```
 
 6. Do the following:
@@ -46,7 +58,13 @@ console.log('D');
 - Catch the error using `.catch`
 
 ```js
-// Your code
+let newPro = new Promise((res,rej)=> res(21)).then((val)=> val+10).then((val)=> val+100)
+.then((val)=> {
+    if(val > 100){
+      return rej("Value is more than 100"))
+    }
+}).catch((val)=> console.log(val))
+
 ```
 
 7. Do the following:
@@ -58,7 +76,14 @@ console.log('D');
 - Use `.then` and log the value
 
 ```js
-// Your code
+let final = new Promise((res,rej)=> res("A")).then((val)=> val.concat("B")).then((val)=> {
+    let splitVal = val.split("");
+    return {0:splitVal[0], 1:splitVal[1]}
+})  
+.then((val)=> {
+    console.log(val)
+})
+
 ```
 
 8. Do the following:
@@ -69,7 +94,21 @@ console.log('D');
 - Chain `.then` on above and return `4` also check the value you get access to by logging
 
 ```js
-// Your code
+
+let first = new Promise((res, rej)=> res(1)).then((val)=> {
+    console.log(val);
+    return 2
+}).then((val)=> {
+    console.log(val);
+    return 3
+}).then((val)=> {
+    console.log(val);
+    return 4
+}).then((val)=> {
+    console.log(val);
+});
+
+
 ```
 
 9. Do the following:
@@ -80,10 +119,27 @@ console.log('D');
 - Use `.then` on `first` and return `4` also check the value you get access to by logging
 
 ```js
-// Your code
+
+let first = new Promise((res, rej)=> res(1));
+
+first.then((val)=> {
+    console.log(val);
+    return 2
+})
+first.then((val)=> {
+    console.log(val);
+    return 3
+})
+first.then((val)=> {
+    console.log(val);
+    return 4
+})
 ```
 
 10. Try to understand the difference between the problem 8 and 9. Write your observation.
+problem 8 is example of promise chain = promise return promise and we can use then function only on promise and then function also return promise and become promise chain. and every then get value of previous promise and we are add one in value every time so for every promise value is increasing.
+
+problem 9 is creating new promise chain every time so evry time it is getting previous value of first promise
 
 11. Do the following
 
@@ -93,5 +149,22 @@ console.log('D');
 - Use `.then` to log the value
 
 ```js
-// Your code
+let names = new Promise((res, rej)=> {
+    return res("John")
+}).then((val)=> {
+    return new Promise((res, rej)=> {
+        console.log(val);
+        return res("Arya")
+    })
+}).then((val)=> {
+    return new Promise((res, rej)=> {
+        console.log(val);
+
+        function sayHello(){
+            return res("Bran")
+        }
+       return setTimeout(sayHello,1000)
+       
+    })
+})
 ```
