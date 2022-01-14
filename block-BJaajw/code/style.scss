@@ -51,3 +51,34 @@ a {
   color: #fff;
   text-decoration: none;
 }
+.error-msg {
+  display: none;
+  text-align: center;
+  margin-top: 5rem;
+  color: red;
+}
+
+@keyframes donut-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.donut {
+  display: inline-block;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #030851;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: donut-spin 0.8s forwards infinite;
+}
+.spinner {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
