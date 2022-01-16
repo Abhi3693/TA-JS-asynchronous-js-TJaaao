@@ -8,3 +8,4 @@
 - Handle toggle (check/uncheck)
 - Clicking on delete/cross button can delete the todo
 - Double click to edit the individual todo
+
